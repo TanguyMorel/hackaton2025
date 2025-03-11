@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../utils/axios.js";
 
-const Login = ({ setAuth }) => {
+const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+            const response = await axios.post("auth/login", { email, password });
             localStorage.setItem("token", response.data.token);
-            setAuth(true); // <-- Met à jour `isAuthenticated`
-            navigate("/home"); // <-- Redirige immédiatement
+            window.location.reload();
         } catch (error) {
+            console.error(error)
             alert("Erreur de connexion");
         }
     };

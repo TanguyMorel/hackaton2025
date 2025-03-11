@@ -1,21 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../utils/axios.js";
 
-const Signup = ({ setAuth }) => {
+const Signup = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
 
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/auth/register", { username, email, password });
+            await axios.post("auth/register", { username, email, password });
             localStorage.setItem("token", "fake-jwt-token");
-            setAuth(true); // <-- Met à jour `isAuthenticated`
-            navigate("/home"); // <-- Redirige immédiatement
+            alert("Inscription réussi");
         } catch (error) {
+            console.error(error);
             alert("Erreur lors de l'inscription");
         }
     };
