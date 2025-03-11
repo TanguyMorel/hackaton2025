@@ -1,0 +1,58 @@
+.home-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+}
+
+.right-section {
+    flex: 1;
+    text-align: center;
+    max-width: 400px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: blue;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkblue;
+}
+
+.toggle-auth span {
+    color: blue;
+    cursor: pointer;
+}

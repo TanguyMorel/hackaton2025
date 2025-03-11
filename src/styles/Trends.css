@@ -1,0 +1,28 @@
+.trends {
+    flex: 1;
+    padding: 20px;
+    background: black;
+    color: white;
+}
+
+.trends h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.trends ul {
+    list-style: none;
+    padding: 0;
+}
+
+.trends li {
+    background: #222;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.trends li:hover {
+    background: #333;
+}

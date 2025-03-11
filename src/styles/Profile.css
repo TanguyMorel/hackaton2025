@@ -1,0 +1,54 @@
+.profile-container {
+    padding: 20px;
+    background: black;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #333;
+    object-fit: cover;
+  }
+  
+  .profile-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-inputs input,
+  .profile-inputs textarea {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .profile-inputs input:focus,
+  .profile-inputs textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
