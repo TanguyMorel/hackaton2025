@@ -1,0 +1,61 @@
+.tweet {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.tweet-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.tweet-content {
+  flex: 1;
+}
+
+.tweet-header {
+  font-size: 14px;
+  color: #555;
+}
+
+.tweet-text {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.tweet-actions button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.tweet-actions button:hover {
+  color: #1da1f2;
+}
+
+/* Styles pour les médias */
+.tweet-media {
+  margin-top: 10px;
+}
+
+.tweet-media img {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.tweet-media video {
+  width: 100%;
+  border-radius: 10px;
+}
