@@ -55,7 +55,7 @@ input {
   font-size: 16px;
 }
 
-button {
+/* button {
   background: var(--blue);
   color: white;
   padding: 12px;
@@ -63,7 +63,7 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
 .toggle-auth span:hover {
   text-decoration: underline;

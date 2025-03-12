@@ -10,9 +10,9 @@ import Notification from "../pages/Notification/Notification.jsx";
 
 const Connected = () => {
     return (
-        <div className="main-container h-full overflow-y-hidden flex">
+        <div className="main-container h-full flex">
             <Navbar/>
-            <div className="flex-1 h-[100vh] overflow-y-hidden">
+            <div className="flex-1 pt-8">
                 <Routes>
                     <Route path={"*"} element={<Home/>}/>
                     <Route path={"/profile"} element={<Profile/>}/>

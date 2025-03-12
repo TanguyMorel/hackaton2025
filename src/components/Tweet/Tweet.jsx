@@ -28,7 +28,7 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
           </div>
         )}
 
-        <div className="tweet-actions">
+        <div className="">
           <button onClick={() => setLikes(likes + 1)}>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>

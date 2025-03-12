@@ -60,7 +60,7 @@ const TweetInput = ({ onTweet }) => {
             📎 Ajouter un média
             <input type="file" accept="image/*,video/*" onChange={handleFileChange} />
           </label>
-          <button type="submit" className="tweet-btn">Tweet</button>
+          <button type="submit" className="tweet-input-btn">Tweet</button>
         </div>
       </form>
     </div>

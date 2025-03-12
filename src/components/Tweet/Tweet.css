@@ -30,15 +30,6 @@
   font-size: 16px;
 }
 
-.tweet-actions button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  margin-right: 10px;
-  font-size: 14px;
-  color: #555;
-}
-
 .tweet-actions button:hover {
   color: #1da1f2;
 }
