@@ -1,6 +1,5 @@
 .profile {
-  width: 600px;
-  margin: 20px auto;
+  flex: 1;
   background: white;
   border-radius: 10px;
   overflow: hidden;

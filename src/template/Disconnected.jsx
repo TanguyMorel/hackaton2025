@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Signup from "./Signup";
-import Login from "./Login";
+import Signup from "../pages/Signup";
+import Login from "../pages/Login";
 import "../styles/Home.css"; 
 
 
-const Home = ({ setAuth }) => {
+const Disconnected = () => {
     const [isLogin, setIsLogin] = useState(false);
 
     return (
@@ -16,7 +16,7 @@ const Home = ({ setAuth }) => {
             <div className="right-section">
                 <h1>Ça se passe maintenant</h1>
                 <p>Inscrivez-vous.</p>
-                {isLogin ? <Login setAuth={setAuth} /> : <Signup setAuth={setAuth} />}
+                {isLogin ? <Login /> : <Signup />}
                 <p className="toggle-auth">
                     {isLogin ? "Vous n'avez pas de compte ?" : "Vous avez déjà un compte ?"}
                     <span onClick={() => setIsLogin(!isLogin)}>
@@ -28,5 +28,5 @@ const Home = ({ setAuth }) => {
     );
 };
 
-export default Home;
+export default Disconnected;
 
