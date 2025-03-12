@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import "../../styles/Profile.css"; // Assure-toi que le chemin est correct selon ta structure
+import axios from "../utils/axios.js";
+import "../styles/Profile.css";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -15,7 +15,7 @@ const Profile = () => {
       if (!token) return;
 
       try {
-        const response = await axios.get("http://localhost:5000/api/users/me", {
+        const response = await axios.get("users/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data);
@@ -36,12 +36,11 @@ const Profile = () => {
     if (!token) return;
 
     try {
-      await axios.put("http://localhost:5000/api/users/me", { username, bio }, {
+      await axios.put("users/me", { username, bio }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Profil mis à jour !");
-      // Optionnel : Recharger les infos
-      setUser(prev => ({ ...prev, username, bio }));
+      setUser((prev) => ({ ...prev, username, bio }));
     } catch (error) {
       console.error("Erreur lors de la mise à jour du profil :", error);
     }

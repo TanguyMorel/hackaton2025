@@ -1,9 +1,35 @@
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+=======
+@import "tailwindcss";
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+>>>>>>> 3de52dd0a85453a9e56c9984aea6e2d0f383edec
 :root {
   --darkblue: #1e2026;
   --red: #a4243b;

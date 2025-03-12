@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-const Navbar = ({ setAuth }) => {
+const Navbar = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("token"); // ❌ Supprime le token
@@ -15,7 +15,7 @@ const Navbar = ({ setAuth }) => {
             <Link to="/explore">🔍 Explorer</Link>
             <Link to="/notifications">🔔 Notifications</Link>
             <Link to="/messages">✉️ Messages</Link>
-            <Link to="/Profile">👤 Profil</Link>
+            <Link to="/profile">👤 Profil</Link>
             <button className="tweet-btn">Tweet</button>
 
             {/* Bouton Déconnexion */}

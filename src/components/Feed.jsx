@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../utils/axios.js";
 import "../styles/Feed.css";
 
 const Feed = () => {
@@ -7,7 +7,7 @@ const Feed = () => {
 
     useEffect(() => {
         const fetchTweets = async () => {
-            const response = await axios.get("http://localhost:5000/api/tweets");
+            const response = await axios.get("tweet");
             setTweets(response.data);
         };
         fetchTweets();
