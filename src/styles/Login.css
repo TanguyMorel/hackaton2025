@@ -1,0 +1,28 @@
+@import url(../index.css);
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+  width: calc(100% - 20%);
+  padding: 20px 0;
+}
+
+.auth-form input {
+  outline-color: var(--blue);
+}
+
+.auth-form button {
+  background-color: var(--blue);
+  transition: background-color 150ms ease;
+}
+
+.auth-form button:hover,
+.auth-form button:focus {
+  background-color: var(--blue-hovered);
+}
+
+.auth-form button:focus {
+  outline-color: var(--white);
+}
