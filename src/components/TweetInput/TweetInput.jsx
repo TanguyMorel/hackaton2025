@@ -34,7 +34,7 @@ const TweetInput = ({ onTweet }) => {
   };
 
   return (
-    <div className="tweet-input">
+    <div className="tweet-input text-black">
       <form onSubmit={handleSubmit}>
         <textarea
           placeholder="Quoi de neuf ?"
