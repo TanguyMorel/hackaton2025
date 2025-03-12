@@ -1,7 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --darkblue: #1e2026;
   --red: #a4243b;
   --blue: #276bf2;
+  --blue-hovered: #2057c3;
   --white: #f2f2f2;
   --sans-serif: "sans serif";
 }
