@@ -23,9 +23,9 @@ const Home = () => {
     })
 
     return (
-        <div className="flex flex-col h-full">
+        <div className="feed">
             <TweetInput onTweet={submitTweet}/>
-            <div className="flex flex-col flex-1 overflow-y-auto">
+            <div className="tweets-wrapper">
                 {tweets.map((tweet) => <Tweet key={tweet.id} {...tweet} toggleFavorite={toggleFavorite}/>
                 )}
             </div>

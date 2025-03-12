@@ -28,11 +28,11 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
           </div>
         )}
 
-        <div className="">
+        <div className="tweet-cta">
           <button onClick={() => setLikes(likes + 1)}>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>
-            {liked ? "💖 Retirer des favoris" : "❤️ Ajouter aux favoris"}
+            {liked ? "⭐️ Retirer des favoris" : "🌟 Ajouter aux favoris"}
           </button>
         </div>
       </div>
