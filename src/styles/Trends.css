@@ -1,27 +1,29 @@
+@import url(../index.css);
+
 .trends {
-    padding: 20px;
-    background: black;
-    color: white;
+  padding: 20px;
+  background-color: var(--darkblue);
+  color: var(--white);
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
-.trends h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
+.trends p {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .trends ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 20px 0;
 }
 
 .trends li {
-    background: #222;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.trends li:hover {
-    background: #333;
+.trends li:not(:last-child) {
+  border-bottom: 1px solid var(--white);
 }
