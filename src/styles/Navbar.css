@@ -1,42 +1,65 @@
+@import url(../index.css);
+
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background: #111;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  width: 250px;
+  height: 100vh;
+  background: var(--darkblue);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.sidebar h2 {
-    color: white;
-    margin-bottom: 20px;
+.logo {
+  display: flex;
+  height: 100px;
+  align-items: flex-start;
+  width: 100%;
+  background-color: transparent;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sidebar a {
-    text-decoration: none;
-    color: white;
-    padding: 10px;
-    display: block;
-    width: 100%;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  transition: background-color 300ms ease;
 }
 
 .sidebar a:hover {
-    background: #222;
-    border-radius: 5px;
+  background: #282828;
+  border-radius: 5px;
 }
 
-.tweet-btn {
-    background: blue;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-    width: 100%;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
+.sidebar a:focus {
+  background: #282828;
+  border-radius: 5px;
+  outline-color: var(--blue);
 }
 
-.tweet-btn:hover {
-    background: darkblue;
+.logout-btn {
+  background-color: var(--blue);
+  transition: background-color 200ms ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--blue-hovered);
+}
+
+.logout-btn:focus {
+  outline-color: var(--white);
 }
