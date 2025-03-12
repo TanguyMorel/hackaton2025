@@ -18,8 +18,10 @@ const App = () => {
 
     if (!login) {
         return <Disconnected/>
-    } else
+    } else{
+
         return <Conencted/>
+    }
 }
 
 

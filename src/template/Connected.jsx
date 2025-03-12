@@ -6,9 +6,14 @@ import {Route, Router, Routes} from "react-router-dom";
 import Home from "../pages/Home.jsx";
 import Profile from "../components/Profile/Profile.jsx";
 import Notification from "../pages/Notification/Notification.jsx";
+import useUserHook from "../utils/hook/useUserHook.js";
+import {useEffect} from "react";
 
 
 const Connected = () => {
+
+    useUserHook()
+
     return (
         <div className="main-container h-full overflow-y-hidden flex">
             <Navbar/>
