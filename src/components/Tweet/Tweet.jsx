@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Tweet.css";
 
-const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, liked, toggleFavorite }) => {
-  const [likes, setLikes] = useState(0);
+const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, liked, toggleFavorite, likes,  }) => {
   const [retweets, setRetweets] = useState(0);
 
   return (
@@ -29,7 +28,7 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
         )}
 
         <div className="tweet-actions">
-          <button onClick={() => setLikes(likes + 1)}>❤️ {likes}</button>
+          <button>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>
             {liked ? "💖 Retirer des favoris" : "❤️ Ajouter aux favoris"}
