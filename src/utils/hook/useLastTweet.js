@@ -1,7 +1,7 @@
 import axios from "../axios.js";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addNewTweet, setTweet} from "../reducer/tweet.js";
+import {addNewTweet, modifyTweet, setTweet} from "../reducer/tweet.js";
 import socket from "../socket.js";
 
 const useAllTweet = () => {
@@ -22,8 +22,10 @@ const useAllTweet = () => {
         (async () => {
             await getCurrentUser()
             socket.on("tweet_posted", (data) => {
-                console.log("Teste")
                 dispatch(addNewTweet(data))
+            })
+            socket.on("tweet_likeed", (data) => {
+                dispatch(modifyTweet(data))
             })
 
         })()

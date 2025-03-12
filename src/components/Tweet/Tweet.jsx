@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Tweet.css";
+import {likeTweet} from "../../utils/tweetAction.js";
 
-const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, liked, toggleFavorite, likes,  }) => {
+const api_uri = import.meta.env.VITE_API_URI
+
+const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, liked, likes  }) => {
   const [retweets, setRetweets] = useState(0);
 
   return (
@@ -16,7 +19,7 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
         {/* Gestion des médias */}
         {media && (
           <div className="tweet-media">
-            {mediaType === "image" && <img src={media} alt="tweet media" />}
+            {mediaType === "image" && <img src={`${api_uri}static/${media}`} alt="tweet media" />}
             {mediaType === "gif" && <img src={media} alt="tweet gif" />}
             {mediaType === "video" && (
               <video controls>
@@ -30,7 +33,7 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
         <div className="tweet-actions">
           <button>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
-          <button onClick={() => toggleFavorite(id)}>
+          <button onClick={() => likeTweet(id)}>
             {liked ? "💖 Retirer des favoris" : "❤️ Ajouter aux favoris"}
           </button>
         </div>

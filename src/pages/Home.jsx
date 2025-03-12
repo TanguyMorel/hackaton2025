@@ -6,6 +6,7 @@ import axios from "../utils/axios.js";
 import {differenceEnHeures} from "../utils/date.js";
 import {useSelector} from "react-redux";
 import useLastTweet from "../utils/hook/useLastTweet.js";
+import {postTweet} from "../utils/tweetAction.js";
 
 
 const Home = () => {
@@ -15,7 +16,8 @@ const Home = () => {
     const user = useSelector((state) => state.user.value)
 
     const submitTweet = (data) => {
-        console.log(data);
+        // console.log(data);
+        postTweet(data.content, data.media)
         // setTweets(x => [...x, data]);
     }
     const toggleFavorite = async (id) => {
@@ -37,7 +39,7 @@ const Home = () => {
                         time={`${differenceEnHeures(new Date(), new Date(tweet.createdAt))}H`}
                         avatar={tweet.author?.avatar}
                         media={tweet.media}
-                        mediaType={tweet.media}
+                        mediaType={tweet.mediaType}
                         liked={user && tweet.likes.includes(user._id)}
                         toggleFavorite={toggleFavorite}
                         likes={tweet.likes.length}
