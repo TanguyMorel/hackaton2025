@@ -13,7 +13,7 @@ const Navbar = () => {
             <h2>🚀 X</h2>
             <Link to="/home">🏠 Accueil</Link>
             <Link to="/explore">🔍 Explorer</Link>
-            <Link to="/notifications">🔔 Notifications</Link>
+            <Link to="/notification">🔔 Notification</Link>
             <Link to="/messages">✉️ Messages</Link>
             <Link to="/profile">👤 Profil</Link>
             <button className="tweet-btn">Tweet</button>
