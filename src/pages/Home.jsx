@@ -1,35 +1,29 @@
 import "../styles/Home.css";
 import TweetInput from "../components/TweetInput/TweetInput.jsx";
 import Tweet from "../components/Tweet/Tweet.jsx";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import axios from "../utils/axios.js";
 import {differenceEnHeures} from "../utils/date.js";
 import {useSelector} from "react-redux";
+import useLastTweet from "../utils/hook/useLastTweet.js";
+import {postTweet} from "../utils/tweetAction.js";
 
 
 const Home = () => {
 
-    const [tweets, setTweets] = useState([]);
+    const {tweets} = useLastTweet()
+
     const user = useSelector((state) => state.user.value)
 
-
-
-
-
     const submitTweet = (data) => {
-        console.log(data);
-        setTweets(x => [...x, data]);
+        // console.log(data);
+        postTweet(data.content, data.media)
+        // setTweets(x => [...x, data]);
     }
     const toggleFavorite = async (id) => {
         await axios.put(`tweet/like/${id}`)
     }
 
-    useEffect(() => {
-        (async () => {
-            const data = (await axios.get("tweet/all")).data
-            setTweets(data)
-        })()
-    }, [])
 
     return (
         <div className="flex flex-col h-full">
@@ -45,7 +39,7 @@ const Home = () => {
                         time={`${differenceEnHeures(new Date(), new Date(tweet.createdAt))}H`}
                         avatar={tweet.author?.avatar}
                         media={tweet.media}
-                        mediaType={tweet.media}
+                        mediaType={tweet.mediaType}
                         liked={user && tweet.likes.includes(user._id)}
                         toggleFavorite={toggleFavorite}
                         likes={tweet.likes.length}
