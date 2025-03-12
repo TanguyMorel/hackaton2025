@@ -15,7 +15,13 @@ const App = () => {
     if (!login) {
         return <Home/>
     } else
-        return <MainPage/>
+        return (
+            <Router>
+                <Routes>
+                    <Route path="/" element={<MainPage/>}/>
+
+                </Routes>
+            </Router>)
 
 };
 
