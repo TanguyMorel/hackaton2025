@@ -1,0 +1,31 @@
+/* Navbar.css */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background: #1a1a1a;
+    border-bottom: 2px solid #333;
+  }
+  
+  input {
+    padding: 10px;
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  nav a:hover {
+    background: #333;
+  }
+  

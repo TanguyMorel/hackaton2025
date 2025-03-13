@@ -1,0 +1,37 @@
+@import url(../../index.css);
+
+.notification-container {
+  padding: 50px;
+  color: var(--white);
+  background-color: var(--darkblue);
+  border-radius: 10px;
+}
+
+.notif-h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.notif-cta {
+  background-color: var(--blue);
+  transition: background-color 250ms ease;
+}
+
+.notif-cta:hover {
+  background-color: var(--blue-hovered);
+  cursor: pointer;
+}
+
+.top-notification-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification-list {
+  padding: 30px 0;
+}
+
+.notification-list > * {
+  border-bottom: solid 1px white;
+  padding: 50px 0;
+}

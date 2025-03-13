@@ -5,7 +5,7 @@ import React, {useCallback, useRef} from "react";
 import { differenceEnHeures } from "../utils/date.js";
 import { useSelector } from "react-redux";
 import useLastTweet from "../utils/hook/useLastTweet.js";
-import {emotionTweet, likeTweet, postTweet} from "../utils/tweetAction.js";
+import {emotionTweet, likeTweet, postTweet, saveTweet} from "../utils/tweetAction.js";
 import Webcam from "react-webcam";
 
 const Home = () => {
@@ -60,10 +60,12 @@ const Home = () => {
             avatar={tweet.author?.avatar}
             media={tweet.media}
             mediaType={tweet.mediaType}
-            liked={user && tweet.likes.includes(user._id)}
             toggleFavorite={likeTweet}
+            saveTweet={saveTweet}
             likes={tweet.likes.length}
+            retweets={tweet.retweets.length}
             userId={tweet.author?._id}
+            saved={user && tweet.saved.includes(user._id)}
             onRead={capture}
           />
         ))}

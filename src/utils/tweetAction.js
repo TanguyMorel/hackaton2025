@@ -8,6 +8,23 @@ export const likeTweet = async (id_tweet) => {
     }
 }
 
+export const saveTweet = async (id_tweet) => {
+    try {
+        await axios.put(`tweet/save/${id_tweet}`)
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const reTweet = async (id_tweet) => {
+    try {
+        await axios.put(`tweet/retweet/${id_tweet}`)
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+
 export const postTweet = async (content, file) => {
     try {
         const data = new FormData();

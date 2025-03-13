@@ -54,17 +54,17 @@ const Notification = () => {
 
     return (
         <div className="notification-container">
-            <div className="flex gap-4 items-center mb-2">
-                <h1 className="text-xl">Notifications</h1>
+            <div className="top-notification-container">
+                <h1 className='notif-h1'>Notifications</h1>
                 <button
                     id="mark-all-read"
-                    className="bg-blue-400 rounded-[5px] px-4 h-[40px]"
+                    className="notif-cta rounded-[5px] px-4 h-[40px]"
                     onClick={markAllAsRead}
                 >
                     Marquer tout comme lu
                 </button>
             </div>
-            <div id="notification-list" className="flex flex-col gap-1">
+            <div className="notification-list">
                 {notifications.map((notification, i) => (
                     <NotificationItem key={i} notification={notification} markAsRead={markAsRead}/>
                 ))}

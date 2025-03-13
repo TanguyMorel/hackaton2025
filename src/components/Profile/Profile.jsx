@@ -5,8 +5,9 @@ import {useSelector} from "react-redux";
 import useUserProfile from "../../utils/hook/useUserProfile.js";
 import {useParams, useNavigate} from "react-router-dom";
 import {differenceEnHeures} from "../../utils/date.js";
-import {likeTweet} from "../../utils/tweetAction.js";
 import axios from "axios";
+import {likeTweet, saveTweet} from "../../utils/tweetAction.js";
+
 
 const Profile = () => {
     const {id} = useParams();
@@ -129,9 +130,12 @@ const Profile = () => {
                             avatar={tweet.author?.avatar}
                             media={tweet.media}
                             mediaType={tweet.mediaType}
-                            liked={user && tweet.likes.includes(user._id)}
                             toggleFavorite={likeTweet}
+                            saveTweet={saveTweet}
                             likes={tweet.likes.length}
+                            retweets={tweet.retweets.length}
+                            userId={tweet.author?._id}
+                            saved={user && tweet.saved.includes(user._id)}
                         />
                     ))}
                 </div>
