@@ -1,22 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.css";
 import Tweet from "../../components/Tweet/Tweet";
 import {useSelector} from "react-redux";
 import useUserProfile from "../../utils/hook/useUserProfile.js";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {differenceEnHeures} from "../../utils/date.js";
 import {likeTweet} from "../../utils/tweetAction.js";
+import axios from "axios";
 
 const Profile = () => {
-
     const {id} = useParams();
-
+    const navigate = useNavigate();
     const currentUser = useSelector((state) => state.user.value)
-
     const {user, tweets} = useUserProfile(id? id : currentUser?._id)
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedUser, setEditedUser] = useState(null);
+    const [error, setError] = useState("");
 
+    if (!user) return null;
 
-    if (!user) return ;
+    const handleEditClick = () => {
+        setEditedUser({
+            username: user.username,
+            bio: user.bio
+        });
+        setIsEditing(true);
+    };
+
+    const handleSave = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                setError("Vous devez être connecté pour modifier votre profil");
+                return;
+            }
+
+            const response = await axios.put(
+                `http://localhost:5001/api/users/update/${currentUser._id}`,
+                editedUser,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            if (response.status === 200) {
+                setIsEditing(false);
+                // Recharger la page pour voir les changements
+                window.location.reload();
+            }
+        } catch (err) {
+            setError(err.response?.data?.message || "Une erreur est survenue lors de la mise à jour");
+        }
+    };
+
+    const handleCancel = () => {
+        setIsEditing(false);
+        setEditedUser(null);
+        setError("");
+    };
+
+    const isOwnProfile = !id || id === currentUser?._id;
 
     console.log(tweets)
 
@@ -27,9 +72,42 @@ const Profile = () => {
             </div>
             <div className="profile-info">
                 <img src={user.avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"} alt="Avatar" className="profile-avatar"/>
-                <h2 className="text-black">{user.username}</h2>
-                <p className="profile-username">@{user.username}</p>
-                <p className="profile-bio text-black">{user.bio}</p>
+                
+                {isEditing ? (
+                    <div className="edit-profile-form">
+                        <input
+                            type="text"
+                            value={editedUser.username}
+                            onChange={(e) => setEditedUser({...editedUser, username: e.target.value})}
+                            className="profile-input"
+                            placeholder="Nom d'utilisateur"
+                        />
+                        <textarea
+                            value={editedUser.bio}
+                            onChange={(e) => setEditedUser({...editedUser, bio: e.target.value})}
+                            className="profile-textarea"
+                            placeholder="Bio"
+                            maxLength={160}
+                        />
+                        <div className="profile-actions">
+                            <button onClick={handleSave} className="profile-save-btn">Enregistrer</button>
+                            <button onClick={handleCancel} className="profile-cancel-btn">Annuler</button>
+                        </div>
+                        {error && <p className="error-message">{error}</p>}
+                    </div>
+                ) : (
+                    <>
+                        <h2 className="text-black">{user.username}</h2>
+                        <p className="profile-username">@{user.username}</p>
+                        <p className="profile-bio text-black">{user.bio}</p>
+                        {isOwnProfile && (
+                            <button onClick={handleEditClick} className="profile-edit-btn">
+                                Modifier le profil
+                            </button>
+                        )}
+                    </>
+                )}
+
                 <div className="profile-details">
                     <span>📅 Membre depuis {new Date(user.createdAt).toLocaleDateString()}</span>
                     <span>👥 {user.following.length} abonnements</span>
@@ -38,9 +116,8 @@ const Profile = () => {
             </div>
 
             <div className="profile-tweets flex-1 flex flex-col overflow-hidden">
-                <h3 className="text-black">Mes Tweets</h3>
+                <h3 className="text-black">Tweets</h3>
                 <div className="flex-1 overflow-y-auto">
-
                     {tweets.map((tweet, i) => (
                         <Tweet
                             key={i}
