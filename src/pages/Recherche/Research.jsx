@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../../components/AdvancedSearchMenu"; 
 
+
 export default function AdvancedSearch({ tweets = [], users = [] }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");

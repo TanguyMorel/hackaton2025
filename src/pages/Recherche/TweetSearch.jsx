@@ -30,7 +30,7 @@ export default function TweetSearch() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Tweets les plus likés {query && ` - Recherche : "${query}"`}</h2>
+      <h2> {query && ` Resultats Recherche : "${query}"`}</h2>
       {filteredTweets.map((tweet) => (
         <div key={tweet.id} style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "10px" }}>
           <p>{tweet.content}</p>

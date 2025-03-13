@@ -1,13 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "../styles/AdvancedSearchMenu.css";  
 
 function Navbar() {
-  const [query, setQuery] = useState(""); // Gestion de l'état pour la recherche
-  const navigate = useNavigate(); // ✅ Importer et utiliser useNavigate
+  const [query, setQuery] = useState(""); 
+  const navigate = useNavigate(); 
 
   const handleSearch = () => {
     if (query.trim() !== "") {
-      navigate(`/tweet?search=${query}`); // ✅ Redirige correctement
+      navigate(`/tweet?search=${query}`); 
     }
   };
 
