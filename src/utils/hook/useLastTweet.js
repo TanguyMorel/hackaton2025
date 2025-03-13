@@ -24,7 +24,7 @@ const useAllTweet = () => {
             socket.on("tweet_posted", (data) => {
                 dispatch(addNewTweet(data))
             })
-            socket.on("tweet_likeed", (data) => {
+            socket.on("update_tweet", (data) => {
                 dispatch(modifyTweet(data))
             })
 
@@ -32,6 +32,7 @@ const useAllTweet = () => {
 
         return () => {
             socket.off("tweet_posted")
+            socket.off("update_tweet")
         }
     }, [])
 
