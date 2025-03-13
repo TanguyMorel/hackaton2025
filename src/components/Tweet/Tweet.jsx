@@ -26,7 +26,7 @@ const Tweet = ({
 
   return (
     <div className="tweet">
-      <img src={avatar} alt={name} className="tweet-avatar" />
+      <img src={avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"} alt={name} className="tweet-avatar" />
       <div className="tweet-content">
         <div className={`tweet-header ${userId && "cursor-pointer"}`} onClick={() => {
           if (userId)
