@@ -7,11 +7,13 @@ import Home from "../pages/Home.jsx";
 import Profile from "../components/Profile/Profile.jsx";
 import Notification from "../pages/Notification/Notification.jsx";
 import useUserHook from "../utils/hook/useUserHook.js";
+import useNotification from "../utils/hook/useNotification.js";
 
 
 const Connected = () => {
 
     useUserHook()
+    useNotification()
 
     return (
         <div className="main-container h-full flex overflow-hidden">

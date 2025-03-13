@@ -49,10 +49,7 @@ const Profile = () => {
 
     const currentUser = useSelector((state) => state.user.value)
 
-
-    useEffect(() => {
-        console.log(currentUser)
-    }, [currentUser])
+    if (!currentUser) return ;
 
     return (
         <div className="profile flex flex-col overflow-hidden h-full">

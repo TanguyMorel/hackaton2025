@@ -54,6 +54,7 @@ const Profile = () => {
     }
   };
 
+
   return (
     <div className="profile-container">
       {user ? (
