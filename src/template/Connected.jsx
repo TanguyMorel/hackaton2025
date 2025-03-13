@@ -16,7 +16,7 @@ const Connected = () => {
     return (
         <div className="main-container h-full flex">
             <Navbar/>
-            <div className="flex-1 pt-8">
+            <div className="flex-1 pt-8 px-2">
                 <Routes>
                     <Route path="*" element={<Home/>}/>
                     <Route path="/profile" element={<Profile/>}/>
