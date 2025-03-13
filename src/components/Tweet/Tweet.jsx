@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Tweet.css";
 import {useNavigate} from "react-router-dom";
+import Webcam from "react-webcam";
 // import { likeTweet } from "../../utils/tweetAction.js";
 
 const api_uri = import.meta.env.VITE_API_URI;
@@ -17,15 +18,36 @@ const Tweet = ({
   liked,
   likes,
   toggleFavorite,
-  userId
+  userId,
+    onRead,
 }) => {
   const navigate = useNavigate();
 
   const [retweets, setRetweets] = useState(0);
-  const [localLikes, setLocalLikes] = useState(likes); 
+
+  const [timer, setTimer] = useState(null);
+
+
+  const handleMouseEnter = () => {
+    const newTimer = setTimeout(() => {
+      onRead(id)
+    }, content.length * 80);
+    setTimer(newTimer);
+  };
+
+  const handleMouseLeave = () => {
+    if (timer) {
+      clearTimeout(timer);
+      setTimer(null);
+    }
+  };
+
 
   return (
-    <div className="tweet">
+    <div className="tweet opacity-[0.4]"
+         onMouseEnter={handleMouseEnter}
+         onMouseLeave={handleMouseLeave}
+    >
       <img src={avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"} alt={name} className="tweet-avatar" />
       <div className="tweet-content">
         <div className={`tweet-header ${userId && "cursor-pointer"}`} onClick={() => {
@@ -55,13 +77,14 @@ const Tweet = ({
         )}
 
         <div className="tweet-cta">
-          <button onClick={() => setLocalLikes(localLikes + 1)}>❤️ {likes}</button>
+          <button>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>
             {liked ? "⭐️ Retirer des favoris" : "🌟 Ajouter aux favoris"}
           </button>
         </div>
       </div>
+
     </div>
   );
 };

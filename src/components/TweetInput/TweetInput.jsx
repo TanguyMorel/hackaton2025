@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import "./TweetInput.css";
 
 const TweetInput = ({ onTweet }) => {
@@ -34,7 +34,7 @@ const TweetInput = ({ onTweet }) => {
   };
 
   return (
-    <div className="tweet-input text-black">
+    <div className="tweet-input text-black mx-[20px]">
       <form onSubmit={handleSubmit}>
         <textarea
           placeholder="Quoi de neuf ?"
