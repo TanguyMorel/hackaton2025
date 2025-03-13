@@ -60,7 +60,7 @@ const Profile = () => {
     console.log(tweets)
 
     return (
-        <div className="profile flex flex-col overflow-hidden h-full">
+        <div className="profile flex flex-col overflow-hidden h-full text-white">
             <div className="profile-banner">
                 <img src={user.banner || ""} alt="Bannière de profil"/>
             </div>
@@ -94,7 +94,7 @@ const Profile = () => {
                     <>
                         <h2 className="text-black">{user.username}</h2>
                         <p className="profile-username">@{user.username}</p>
-                        <p className="profile-bio text-black">{user.bio}</p>
+                        <p className="profile-bio">{user.bio}</p>
                         {isOwnProfile && (
                             <button onClick={handleEditClick} className="profile-edit-btn">
                                 Modifier le profil
