@@ -22,6 +22,7 @@
   width: 250px;
   aspect-ratio: 1;
   background: red;
+  height: auto;
 }
 
 .right-section {
@@ -34,6 +35,11 @@
   text-align: center;
   max-width: 400px;
   font-family: sans-serif;
+}
+
+.right-section h1 {
+  font-size: 30px;
+  font-weight: bolder;
 }
 
 .auth-form {
@@ -49,7 +55,7 @@ input {
   font-size: 16px;
 }
 
-button {
+/* button {
   background: var(--blue);
   color: white;
   padding: 12px;
@@ -57,9 +63,13 @@ button {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-}
+} */
 
 .toggle-auth span:hover {
+  text-decoration: underline;
+}
+
+.toggle-auth span:focus {
   text-decoration: underline;
 }
 

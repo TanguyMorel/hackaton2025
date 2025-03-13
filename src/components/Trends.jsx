@@ -11,7 +11,7 @@ const Trends = () => {
 
     return (
         <div className="trends">
-            <h2>Tendances</h2>
+            <p>Tendances</p>
             <ul>
                 {trends.map((trend, index) => (
                     <li key={index}>{trend}</li>

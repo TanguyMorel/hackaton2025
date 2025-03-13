@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./Profile.css";
 import Tweet from "../../components/Tweet/Tweet";
+import {useSelector} from "react-redux";
 
 const user = {
     name: "Moi",
@@ -34,28 +35,43 @@ const userTweets = [
         content: "Bientôt une vraie API pour ce projet... 😉",
         time: "3j",
         avatar: user.avatar
+    },
+    {
+        name: user.name,
+        username: user.username,
+        content: "Bientôt une vraie API pour ce projet... 😉",
+        time: "3j",
+        avatar: user.avatar
     }
 ];
 
 const Profile = () => {
+
+    const currentUser = useSelector((state) => state.user.value)
+
+
+    useEffect(() => {
+        console.log(currentUser)
+    }, [currentUser])
+
     return (
         <div className="profile flex flex-col overflow-hidden h-full">
             <div className="profile-banner">
                 <img src={user.banner} alt="Bannière de profil"/>
             </div>
             <div className="profile-info">
-                <img src={user.avatar} alt="Avatar" className="profile-avatar"/>
-                <h2 className="text-black">{user.name}</h2>
-                <p className="profile-username">@{user.username}</p>
-                <p className="profile-bio text-black">{user.bio}</p>
+                <img src={currentUser.avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"} alt="Avatar" className="profile-avatar"/>
+                <h2 className="text-black">{currentUser.username}</h2>
+                <p className="profile-username">@{currentUser.username}</p>
+                <p className="profile-bio text-black">{currentUser.bio}</p>
                 <div className="profile-details">
-                    <span>📅 Membre depuis {user.joinDate}</span>
-                    <span>👥 {user.following} abonnements</span>
-                    <span>🎉 {user.followers} abonnés</span>
+                    <span>📅 Membre depuis {new Date(currentUser.createdAt).toLocaleDateString()}</span>
+                    <span>👥 {currentUser.following.length} abonnements</span>
+                    <span>🎉 {currentUser.followers.length} abonnés</span>
                 </div>
             </div>
 
-            <div className="profile-tweets flex-1 flex flex-col">
+            <div className="profile-tweets flex-1 flex flex-col overflow-hidden">
                 <h3 className="text-black">Mes Tweets</h3>
                 <div className="flex-1 overflow-y-auto">
 

@@ -11,6 +11,8 @@
 
 .auth-form input {
   outline-color: var(--blue);
+  background: var(--white);
+  color: var(--darkblue);
 }
 
 .auth-form button {

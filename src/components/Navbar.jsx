@@ -10,15 +10,18 @@ const Navbar = () => {
 
     return (
         <nav className="sidebar">
-            <h2>🚀 X</h2>
+            <div className="logo">
+            <img src="logo-white.png" alt="Logo de Bleeper" className="logo" />
+            </div>
+            <ul>
             <Link to="/home">🏠 Accueil</Link>
             <Link to="/explore">🔍 Explorer</Link>
             <Link to="/notification">🔔 Notification</Link>
             <Link to="/messages">✉️ Messages</Link>
             <Link to="/profile">👤 Profil</Link>
-            <button className="tweet-btn">Tweet</button>
+            </ul>
+            {/* <button className="tweet-btn">Tweet</button> */}
 
-            {/* Bouton Déconnexion */}
             <button className="logout-btn" onClick={handleLogout}>🚪 Déconnexion</button>
         </nav>
     );

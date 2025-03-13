@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "../utils/axios.js";
 import "../styles/Profile.css";
+import {useSelector} from "react-redux";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  const currentUser = useSelector((state) => state.user.value)
+
+
+  useEffect(() => {
+    console.log(currentUser)
+  }, [currentUser])
 
   // Charge les infos du profil depuis le backend
   useEffect(() => {

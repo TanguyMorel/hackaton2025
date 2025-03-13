@@ -14,16 +14,19 @@ const Connected = () => {
     useUserHook()
 
     return (
-        <div className="main-container h-full overflow-y-hidden flex">
+        <div className="main-container h-full flex overflow-hidden">
             <Navbar/>
-            <div className="flex-1 h-[100vh] overflow-y-hidden">
+            <div className="flex-1 pt-2 px-2 overflow-y-auto">
                 <Routes>
                     <Route path="*" element={<Home/>}/>
                     <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/notification" element={ <Notification /> } />
+                    <Route path="/notification" element={<Notification/>}/>
                 </Routes>
             </div>
-            <Trends/>
+            <div>
+
+                <Trends/>
+            </div>
         </div>
     )
         ;
