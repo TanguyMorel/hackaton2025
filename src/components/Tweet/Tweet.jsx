@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import "./Tweet.css";
+// import { likeTweet } from "../../utils/tweetAction.js";
 
-const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, liked, toggleFavorite }) => {
-  const [likes, setLikes] = useState(0);
+const api_uri = import.meta.env.VITE_API_URI;
+
+const Tweet = ({
+  id,
+  name,
+  username,
+  content,
+  time,
+  avatar,
+  media,
+  mediaType,
+  liked,
+  likes,
+  toggleFavorite, 
+}) => {
   const [retweets, setRetweets] = useState(0);
+  const [localLikes, setLocalLikes] = useState(likes); 
 
   return (
     <div className="tweet">
@@ -17,8 +32,12 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
         {/* Gestion des médias */}
         {media && (
           <div className="tweet-media">
-            {mediaType === "image" && <img src={media} alt="tweet media" />}
-            {mediaType === "gif" && <img src={media} alt="tweet gif" />}
+            {mediaType === "image" && (
+              <img src={`${api_uri}static/${media}`} alt="tweet media" />
+            )}
+            {mediaType === "gif" && (
+              <img src={media} alt="tweet gif" />
+            )}
             {mediaType === "video" && (
               <video controls>
                 <source src={media} type="video/mp4" />
@@ -29,7 +48,7 @@ const Tweet = ({ id, name, username, content, time, avatar, media, mediaType, li
         )}
 
         <div className="tweet-cta">
-          <button onClick={() => setLikes(likes + 1)}>❤️ {likes}</button>
+          <button onClick={() => setLocalLikes(localLikes + 1)}>❤️ {localLikes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>
             {liked ? "⭐️ Retirer des favoris" : "🌟 Ajouter aux favoris"}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useRef, useState} from "react";
 import "./TweetInput.css";
 
 const TweetInput = ({ onTweet }) => {
@@ -11,7 +11,7 @@ const TweetInput = ({ onTweet }) => {
     if (file) {
       const fileType = file.type.startsWith("image") ? "image" : file.type.startsWith("video") ? "video" : "";
       setMediaType(fileType);
-      setMedia(URL.createObjectURL(file));
+      setMedia(file);
     }
   };
 
