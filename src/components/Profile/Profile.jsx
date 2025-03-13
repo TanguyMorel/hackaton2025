@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Profile.css";
 import Tweet from "../../components/Tweet/Tweet";
 import {useSelector} from "react-redux";
 import useUserProfile from "../../utils/hook/useUserProfile.js";
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {differenceEnHeures} from "../../utils/date.js";
-import axios from "axios";
 import {likeTweet, saveTweet} from "../../utils/tweetAction.js";
+import axios from "../../utils/axios.js";
 
 
 const Profile = () => {
     const {id} = useParams();
-    const navigate = useNavigate();
     const currentUser = useSelector((state) => state.user.value)
-    const {user, tweets} = useUserProfile(id? id : currentUser?._id)
+    const {user, tweets} = useUserProfile(id ? id : currentUser?._id)
     const [isEditing, setIsEditing] = useState(false);
     const [editedUser, setEditedUser] = useState(null);
     const [error, setError] = useState("");
@@ -36,14 +35,8 @@ const Profile = () => {
                 return;
             }
 
-            const response = await axios.put(
-                `http://localhost:5001/api/users/update/${currentUser._id}`,
+            const response = await axios.put(`users/update/${currentUser._id}`,
                 editedUser,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
             );
 
             if (response.status === 200) {
@@ -72,8 +65,9 @@ const Profile = () => {
                 <img src={user.banner || ""} alt="Bannière de profil"/>
             </div>
             <div className="profile-info">
-                <img src={user.avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"} alt="Avatar" className="profile-avatar"/>
-                
+                <img src={user.avatar || "https://i.pinimg.com/736x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"}
+                     alt="Avatar" className="profile-avatar"/>
+
                 {isEditing ? (
                     <div className="edit-profile-form">
                         <input
@@ -118,7 +112,7 @@ const Profile = () => {
 
             <div className="profile-tweets flex-1 flex flex-col overflow-hidden">
                 <h3 className="text-black">Tweets</h3>
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto px-1">
                     {tweets.map((tweet, i) => (
                         <Tweet
                             key={i}
