@@ -10,6 +10,7 @@ import useUserHook from "../utils/hook/useUserHook.js";
 import useNotification from "../utils/hook/useNotification.js";
 import AdvancedSearch from "../pages/Recherche/Research.jsx";
 import ResearchUser from "../pages/Recherche/ResearchUser.jsx";
+import TweetSearch from "../pages/Recherche/TweetSearch.jsx";
 
 
 const Connected = () => {
@@ -28,6 +29,7 @@ const Connected = () => {
                     <Route path="/notification" element={<Notification/>}/>
                     <Route path="/advancedSearch" element={ <AdvancedSearch /> } />
                     <Route path="/users" element={<ResearchUser />} />
+                    <Route path="/tweet" element={<TweetSearch />} />
                 </Routes>
             </div>
             <div>

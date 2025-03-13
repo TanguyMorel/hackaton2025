@@ -8,7 +8,7 @@ export default function UsersPage() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("/users"); // Appelle ton backend
+        const response = await axios.get("/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des utilisateurs :", error);
@@ -24,7 +24,7 @@ export default function UsersPage() {
       <ul>
         {users.map((user) => (
           <li key={user.id}> 
-            <Link to={`/users/${user.id}`}>{user.username}</Link> {/* Lien vers la page de profil */}
+            <Link to={`/profile/${user._id}`}>{user.username}</Link>
           </li>
         ))}
       </ul>
