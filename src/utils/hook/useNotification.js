@@ -11,7 +11,6 @@ const useNotification = () => {
     const fetchNotifications = async () => {
         try {
             const response = await axiosInstance.get('notification');
-            console.log(response)
             dispatch(setNotification(response.data));
         } catch (error) {
             console.error('Erreur lors de la récupération des notifications:', error);
