@@ -28,7 +28,6 @@ const Navbar = () => {
                         </div>)
                     }
                 </Link>
-                <Link to="/messages">✉️ Messages</Link>
                 <Link to="/profile">👤 Profil</Link>
             </ul>
             {/* <button className="tweet-btn">Tweet</button> */}
