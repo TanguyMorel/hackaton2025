@@ -33,6 +33,7 @@ const Home = () => {
             liked={user && tweet.likes.includes(user._id)}
             toggleFavorite={likeTweet}
             likes={tweet.likes.length}
+            userId={tweet.author?._id}
           />
         ))}
       </div>

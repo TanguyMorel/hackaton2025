@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Tweet.css";
+import {useNavigate} from "react-router-dom";
 // import { likeTweet } from "../../utils/tweetAction.js";
 
 const api_uri = import.meta.env.VITE_API_URI;
@@ -15,8 +16,10 @@ const Tweet = ({
   mediaType,
   liked,
   likes,
-  toggleFavorite, 
+  toggleFavorite,
+  userId
 }) => {
+  const navigate = useNavigate();
 
   const [retweets, setRetweets] = useState(0);
   const [localLikes, setLocalLikes] = useState(likes); 
@@ -25,7 +28,10 @@ const Tweet = ({
     <div className="tweet">
       <img src={avatar} alt={name} className="tweet-avatar" />
       <div className="tweet-content">
-        <div className="tweet-header">
+        <div className={`tweet-header ${userId && "cursor-pointer"}`} onClick={() => {
+          if (userId)
+          navigate(`/profile/${userId}`)
+        }}>
           <strong>{name}</strong> <span>@{username} · {time}</span>
         </div>
         <p className="tweet-text">{content}</p>
