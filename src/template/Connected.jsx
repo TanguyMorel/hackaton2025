@@ -8,6 +8,8 @@ import Profile from "../components/Profile/Profile.jsx";
 import Notification from "../pages/Notification/Notification.jsx";
 import useUserHook from "../utils/hook/useUserHook.js";
 import useNotification from "../utils/hook/useNotification.js";
+import AdvancedSearch from "../pages/Recherche/Research.jsx";
+import ResearchUser from "../pages/Recherche/ResearchUser.jsx";
 
 
 const Connected = () => {
@@ -24,6 +26,8 @@ const Connected = () => {
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/profile/:id" element={<Profile/>}/>
                     <Route path="/notification" element={<Notification/>}/>
+                    <Route path="/advancedSearch" element={ <AdvancedSearch /> } />
+                    <Route path="/users" element={<ResearchUser />} />
                 </Routes>
             </div>
             <div>

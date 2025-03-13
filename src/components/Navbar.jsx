@@ -18,7 +18,7 @@ const Navbar = () => {
             </div>
             <ul>
                 <Link to="/home">🏠 Accueil</Link>
-                <Link to="/explore">🔍 Explorer</Link>
+                <Link to="/advancedSearch">🔍 Recherches avancées</Link>
                 <Link to="/notification" className="flex items-center gap-1">
                     🔔 Notification
                     {
