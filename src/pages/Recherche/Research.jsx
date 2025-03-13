@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Navbar from "../../components/AdvancedSearchMenu"; // Import de la Navbar
+import Navbar from "../../components/AdvancedSearchMenu"; 
+
 
 export default function AdvancedSearch({ tweets = [], users = [] }) {
   const [query, setQuery] = useState("");

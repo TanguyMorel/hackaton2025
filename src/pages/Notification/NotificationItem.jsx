@@ -15,7 +15,7 @@ function NotificationItem({notification, markAsRead}) {
             {/*<span className="notification-time">{new Date(notification.createdAt).toLocaleString()}</span>*/}
             {!notification.isRead &&
                 <button
-                    className="bg-blue-400 rounded-[5px] w-[40px] h-[40px]"
+                    className="notif-cta rounded-[5px] w-[40px] h-[40px]"
                     onClick={() => markAsRead(notification._id)}
                 >
                     lu
