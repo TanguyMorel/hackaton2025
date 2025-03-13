@@ -10,17 +10,17 @@ const Disconnected = () => {
     return (
         <div className="home-container">
             <div className="left-section">
-                <img src="/logo-x.png" alt="Logo X" className="logo" />
+                <img src="logo-white.png" alt="Logo de Bleeper" className="logo" />
             </div>
 
             <div className="right-section">
-                <h1>Ça se passe maintenant</h1>
-                <p>Inscrivez-vous.</p>
+                <h1>Ça se passe maintenant !</h1>
+                <p>{isLogin ? "Connectez-vous." : "Inscrivez-vous."}</p>
                 {isLogin ? <Login /> : <Signup />}
                 <p className="toggle-auth">
                     {isLogin ? "Vous n'avez pas de compte ?" : "Vous avez déjà un compte ?"}
                     <span onClick={() => setIsLogin(!isLogin)}>
-                        {isLogin ? " S'inscrire" : " Se connecter"}
+                        {isLogin ? "S'inscrire" : "Se connecter"}
                     </span>
                 </p>
             </div>
