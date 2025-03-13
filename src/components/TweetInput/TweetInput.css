@@ -1,10 +1,10 @@
 @import url(../../index.css);
 
 .tweet-input {
-  width: 500px;
+  /*width: 500px;*/
   padding: 30px;
   border: 1px solid #e1e8ed;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   border-radius: 10px;
   background-color: var(--darkblue);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);

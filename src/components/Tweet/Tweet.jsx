@@ -49,7 +49,7 @@ const Tweet = ({
         )}
 
         <div className="tweet-cta">
-          <button onClick={() => setLocalLikes(localLikes + 1)}>❤️ {localLikes}</button>
+          <button onClick={() => setLocalLikes(localLikes + 1)}>❤️ {likes}</button>
           <button onClick={() => setRetweets(retweets + 1)}>🔁 {retweets}</button>
           <button onClick={() => toggleFavorite(id)}>
             {liked ? "⭐️ Retirer des favoris" : "🌟 Ajouter aux favoris"}

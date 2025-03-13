@@ -16,7 +16,7 @@ const Home = () => {
   };
 
   return (
-    <div className="feed flex flex-col">
+    <div className="feed flex flex-col gap-8 h-full overflow-hidden">
       <TweetInput onTweet={submitTweet} />
       <div className="tweets-wrapper flex flex-col flex-1 overflow-y-auto">
         {tweets.map((tweet, i) => (
