@@ -15,6 +15,7 @@ function Navbar() {
       />
       <Link to={`/all?search=${query}`}>Tout</Link>  {/* Passer la recherche dans l'URL */}
       <Link to={`/users?search=${query}`}>Utilisateurs</Link>  {/* Passer la recherche dans l'URL */}
+      <Link to={`/tweet?search=${query}`}>Populaire</Link> 
     </nav>
   );
 }
